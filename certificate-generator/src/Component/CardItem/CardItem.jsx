@@ -5,39 +5,25 @@ import {
   CardBody,
   CardFooter,
   Typography,
+  Alert,
 } from "@material-tailwind/react";
 
-const CardItem = () => {
-    return (
-        <div className='bg-yellow-200 py-4'>
-            <Card className="w-96 mx-auto">
-                <CardHeader floated={false} color="blue" className="relative h-56">
-                    <img
-                        src="https://images.pexels.com/photos/2387418/pexels-photo-2387418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        alt="img-blur-shadow"
-                        className="h-full w-full"
-                    />
-                </CardHeader>
-                <CardBody className="text-center">
-                    <Typography variant="h5" className="mb-2">
-                        Cozy 5 Stars Apartment
-                    </Typography>
-                    <Typography>
-                        The place is close to Barceloneta Beach and bus stop just 2 min by
-                        walk and near to "Naviglio" where you can enjoy the main night life in
-                        Barcelona.
-                    </Typography>
-                </CardBody>
-                <CardFooter divider className="flex items-center justify-between py-3">
-                    <Typography variant="small">$899/night</Typography>
-                    <Typography variant="small" color="gray" className="flex gap-1">
-                        <i className="fas fa-map-marker-alt fa-sm mt-[3px]" />
-                        Barcelona, Spain
-                    </Typography>
-                </CardFooter>
-            </Card>
+
+const CardItem = ({ data }) => {
+  // https://images.pexels.com/photos/2387418/pexels-photo-2387418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+  return (
+    <div className='w-full bg-yellow-200'>
+      <div className="card w-96 border rounded-lg shadow">
+        <div className="card-body">
+          <img className={`rounded-t-lg ${data}`} src="https://images.pexels.com/photos/2387418/pexels-photo-2387418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+          <div className="detail p-4">
+            <h1>John Doe</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores eius nisi quibusdam beatae sapiente nam blanditiis, quia vel pariatur at?</p>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default CardItem;
