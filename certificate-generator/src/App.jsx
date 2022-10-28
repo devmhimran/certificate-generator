@@ -1,32 +1,43 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import './App.css'
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+} from "@material-tailwind/react";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Card className="w-96">
+        <CardHeader color="blue" className="relative h-56">
+          <img
+            src="/img/blog.jpg"
+            alt="img-blur-shadow"
+            className="h-full w-full"
+          />
+        </CardHeader>
+        <CardBody className="text-center">
+          <Typography variant="h5" className="mb-2">
+            Cozy 5 Stars Apartment
+          </Typography>
+          <Typography>
+            The place is close to Barceloneta Beach and bus stop just 2 min by
+            walk and near to "Naviglio" where you can enjoy the main night life in
+            Barcelona.
+          </Typography>
+        </CardBody>
+        <CardFooter divider className="flex items-center justify-between py-3">
+          <Typography variant="small">$899/night</Typography>
+          <Typography variant="small" color="gray" className="flex gap-1">
+            <i className="fas fa-map-marker-alt fa-sm mt-[3px]" />
+            Barcelona, Spain
+          </Typography>
+        </CardFooter>
+      </Card>
     </div>
   )
 }
