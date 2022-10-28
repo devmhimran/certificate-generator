@@ -9,11 +9,11 @@ import {
 
 const CardItem = () => {
     return (
-        <div className='bg-yellow-200'>
+        <div className='bg-yellow-200 py-4'>
             <Card className="w-96 mx-auto">
-                <CardHeader color="blue" className="relative h-56">
+                <CardHeader floated={false} color="blue" className="relative h-56">
                     <img
-                        src="/img/blog.jpg"
+                        src="https://images.pexels.com/photos/2387418/pexels-photo-2387418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                         alt="img-blur-shadow"
                         className="h-full w-full"
                     />
