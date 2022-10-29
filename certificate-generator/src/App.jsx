@@ -10,6 +10,9 @@ import {
   Typography,
   Alert,
 } from "@material-tailwind/react";
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 
 
 const ComponentToPrint = React.forwardRef((props, ref) => (
@@ -47,7 +50,7 @@ const ComponentToPrint = React.forwardRef((props, ref) => (
 ));
 
 function App() {
-
+ const [editor, setEditor] = useState('');
   const exportComponent = useRef();
   const [rightClick, setRightClick] = useState('');
   const handleRight = () => {
@@ -57,6 +60,7 @@ function App() {
   return (
     <div className="App w-full">
       <div className="container mx-auto max-w-screen-xl">
+        {editor}
         <div className='py-8'>
           <Button onClick={() => exportComponentAsJPEG(exportComponent)} className='mx-4'>Image</Button>
           <Button onClick={() => exportComponentAsPDF(exportComponent)} className='mx-4'>Pdf</Button>
@@ -68,6 +72,26 @@ function App() {
         <div className='pt-8'>
           <Button onClick={handleRight} className='mx-4'>Right</Button>
         </div>
+
+        <CKEditor
+                    editor={ ClassicEditor }
+                    data="<p>Hello from CKEditor 5!</p>"
+                    onReady={ editor => {
+                        // You can store the "editor" and use when it is needed.
+                        console.log( 'Editor is ready to use!', editor );
+                    } }
+                    onChange={ ( event, editor ) => {
+                        const data = editor.getData();
+                        setEditor(data)
+                        console.log( { event, editor, data } );
+                    } }
+                    onBlur={ ( event, editor ) => {
+                        console.log( 'Blur.', editor );
+                    } }
+                    onFocus={ ( event, editor ) => {
+                        console.log( 'Focus.', editor );
+                    } }
+                />
       </div>
     </div>
   )

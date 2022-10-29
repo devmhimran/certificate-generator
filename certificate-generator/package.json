@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^35.2.1",
+    "@ckeditor/ckeditor5-react": "^5.0.2",
     "@material-tailwind/react": "^1.2.4",
     "html2canvas": "^1.4.1",
     "react": "^18.2.0",
