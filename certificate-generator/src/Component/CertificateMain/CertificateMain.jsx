@@ -1,14 +1,28 @@
-import { Button, Input, Textarea } from '@material-tailwind/react';
+import { Avatar, Button, Input, Textarea } from '@material-tailwind/react';
 import React from 'react';
+import { useState } from 'react';
 
 const CertificateMain = () => {
     const imageApi = 'ef367f576eca302d4916e3889c6e0cc6';
+    const [logo, setLogo] = useState('');
     const handleImage = (e) =>{
         const photoURL = e.target.files[0];
         const formData = new FormData();
         formData.append('image', photoURL);
         console.log(photoURL)
-    }
+        const imgUrl = `https://api.imgbb.com/1/upload?key=${imageApi}`;
+        fetch(imgUrl, {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then((result) => {
+            const logo = result.data.image.url;
+            setLogo(logo);
+            console.log(logo)
+    })
+}
+
     return (
         <div className='certificate__main'>
             <div className="grid grid-cols-6 gap-4">
@@ -48,6 +62,9 @@ const CertificateMain = () => {
                                 name='logo'
                                 />
                             </label>
+                            {
+                                logo ? <><Avatar className='border mt-4' src={logo} alt="avatar" size="xxl" /></> : ''
+                            }
                         </div>
                         <div className="input__detail my-8">
                             <Button fullWidth>Export As Pdf</Button>
