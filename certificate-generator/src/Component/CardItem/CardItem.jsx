@@ -12,7 +12,7 @@ import {
 const CardItem = ({ data }) => {
   // https://images.pexels.com/photos/2387418/pexels-photo-2387418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
   return (
-    <div className='w-full bg-yellow-200'>
+    <div className='w-full'>
       <div className="card w-96 border rounded-lg ">
         <div className="card-body">
           <img className={`rounded-t-lg ${data}`} src="https://images.pexels.com/photos/2387418/pexels-photo-2387418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
