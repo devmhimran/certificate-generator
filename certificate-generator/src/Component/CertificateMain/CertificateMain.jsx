@@ -24,7 +24,7 @@ const CertificateMain = () => {
             })
     }
     const handlePreviewClear = () =>{
-        setLogo('')
+        // setLogo('')
     }
 
     return (
@@ -55,7 +55,7 @@ const CertificateMain = () => {
                         <div className="input__detail my-8">
                             <label className="block cursor-pointer">
                                 <span className="sr-only">Logo</span>
-                                <input type="file" value={logo} className="block w-full text-sm text-slate-500
+                                <input type="file" className="block w-full text-sm text-slate-500
                                 file:mr-4 file:py-2 file:px-4
                                 file:rounded-full file:border-0
                                 file:text-sm file:font-semibold
@@ -71,7 +71,7 @@ const CertificateMain = () => {
                                     <>
                                         <div className="preview__logo relative w-fit">
                                             <Avatar className='border mt-4' src={logo} alt="avatar" size="xxl" />
-                                            <span className='absolute top-[6px] right-[-7px]' onClick={handlePreviewClear}>
+                                            <span className='absolute top-[6px] right-[-7px] bg-white rounded-full' onClick={handlePreviewClear}>
                                                 <TiDeleteOutline className='text-2xl text-gray-600' />
                                             </span>
                                         </div>
