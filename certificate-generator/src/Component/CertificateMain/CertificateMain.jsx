@@ -1,11 +1,13 @@
 import { Avatar, Button, Input, Textarea } from '@material-tailwind/react';
 import React from 'react';
+import { useRef } from 'react';
 import { useState } from 'react';
 import { TiDeleteOutline } from 'react-icons/ti';
 
 const CertificateMain = () => {
     const imageApi = 'ef367f576eca302d4916e3889c6e0cc6';
     const [logo, setLogo] = useState('');
+    const resetFile = useRef();
     const handleImage = (e) => {
         const photoURL = e.target.files[0];
         const formData = new FormData();
@@ -22,9 +24,11 @@ const CertificateMain = () => {
                 setLogo(logo);
                 console.log(logo)
             })
+            
     }
     const handlePreviewClear = () =>{
-        // setLogo('')
+        setLogo('')
+        resetFile.current.value = "";
     }
 
     return (
@@ -64,6 +68,7 @@ const CertificateMain = () => {
                                 "
                                     onChange={handleImage}
                                     name='logo'
+                                    ref={resetFile}
                                 />
                             </label>
                             {
@@ -71,7 +76,7 @@ const CertificateMain = () => {
                                     <>
                                         <div className="preview__logo relative w-fit">
                                             <Avatar className='border mt-4' src={logo} alt="avatar" size="xxl" />
-                                            <span className='absolute top-[6px] right-[-7px] bg-white rounded-full' onClick={handlePreviewClear}>
+                                            <span className='absolute top-[6px] right-[-7px] cursor-pointer bg-white rounded-full' onClick={handlePreviewClear}>
                                                 <TiDeleteOutline className='text-2xl text-gray-600' />
                                             </span>
                                         </div>
