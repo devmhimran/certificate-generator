@@ -1,11 +1,12 @@
 import { Avatar, Button, Input, Textarea } from '@material-tailwind/react';
 import React from 'react';
 import { useState } from 'react';
+import { TiDeleteOutline } from 'react-icons/ti';
 
 const CertificateMain = () => {
     const imageApi = 'ef367f576eca302d4916e3889c6e0cc6';
     const [logo, setLogo] = useState('');
-    const handleImage = (e) =>{
+    const handleImage = (e) => {
         const photoURL = e.target.files[0];
         const formData = new FormData();
         formData.append('image', photoURL);
@@ -15,13 +16,16 @@ const CertificateMain = () => {
             method: 'POST',
             body: formData
         })
-        .then(res => res.json())
-        .then((result) => {
-            const logo = result.data.image.url;
-            setLogo(logo);
-            console.log(logo)
-    })
-}
+            .then(res => res.json())
+            .then((result) => {
+                const logo = result.data.image.url;
+                setLogo(logo);
+                console.log(logo)
+            })
+    }
+    const handlePreviewClear = () =>{
+        setLogo('')
+    }
 
     return (
         <div className='certificate__main'>
@@ -51,19 +55,28 @@ const CertificateMain = () => {
                         <div className="input__detail my-8">
                             <label className="block cursor-pointer">
                                 <span className="sr-only">Logo</span>
-                                <input type="file" className="block w-full text-sm text-slate-500
+                                <input type="file" value={logo} className="block w-full text-sm text-slate-500
                                 file:mr-4 file:py-2 file:px-4
                                 file:rounded-full file:border-0
                                 file:text-sm file:font-semibold
                                 file:bg-violet-50 file:text-violet-700
                                 hover:file:bg-violet-100
                                 "
-                                onChange={handleImage}
-                                name='logo'
+                                    onChange={handleImage}
+                                    name='logo'
                                 />
                             </label>
                             {
-                                logo ? <><Avatar className='border mt-4' src={logo} alt="avatar" size="xxl" /></> : ''
+                                logo ?
+                                    <>
+                                        <div className="preview__logo relative w-fit">
+                                            <Avatar className='border mt-4' src={logo} alt="avatar" size="xxl" />
+                                            <span className='absolute top-[6px] right-[-7px]' onClick={handlePreviewClear}>
+                                                <TiDeleteOutline className='text-2xl text-gray-600' />
+                                            </span>
+                                        </div>
+                                    </>
+                                    : ''
                             }
                         </div>
                         <div className="input__detail my-8">
