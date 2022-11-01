@@ -13,6 +13,7 @@ const CertificateMain = () => {
     const [participantName, setParticipantName] = useState('');
     const [heading, setHeading] = useState('');
     const [img, setImage] = useState('');
+    const [designId, setDesignId] = useState('');
     const resetFile = useRef();
 
     const data = [
@@ -58,7 +59,7 @@ const CertificateMain = () => {
             .then((result) => {
                 const logo = result.data.image.url;
                 setLogo(logo);
-                console.log(logo)
+                // console.log(logo)
             })
             
     }
@@ -66,9 +67,11 @@ const CertificateMain = () => {
         setLogo('')
         resetFile.current.value = "";
     }
-    const handleDesign = (designId, designImage) =>{
-        console.log(designId)
+    const handleDesign = (id, designImage) =>{
+        // console.log(designId)
         setImage(designImage)
+        setDesignId(id)
+        // console.log(id)
     }
 
     return (
@@ -91,7 +94,7 @@ const CertificateMain = () => {
                 </div>
                 <div className="design__preview col-span-4 flex justify-center items-center h-[89vh]">
                     <div className="card w-10/12 border shadow">
-                        <CertificateImage data={img} />
+                        <CertificateImage data={img} designId={designId} />
                     </div>
                 </div>
                 <div className="certificate__details px-4 py-8 border-l">
