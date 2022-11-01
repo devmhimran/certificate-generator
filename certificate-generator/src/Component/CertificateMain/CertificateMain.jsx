@@ -3,11 +3,47 @@ import React from 'react';
 import { useRef } from 'react';
 import { useState } from 'react';
 import { TiDeleteOutline } from 'react-icons/ti';
+import CertificateImage from '../CertificateImage/CertificateImage';
 
 const CertificateMain = () => {
     const imageApi = 'ef367f576eca302d4916e3889c6e0cc6';
     const [logo, setLogo] = useState('');
+    const [author, setAuthor] = useState('');
+    const [description, setDescription] = useState('');
+    const [participantName, setParticipantName] = useState('');
+    const [heading, setHeading] = useState('');
+    const [img, setImage] = useState('');
     const resetFile = useRef();
+
+    const data = [
+        {
+            "id": "1",
+            "name": "design-1",
+            "img": "Untitled-1.png"
+        },
+        {
+            "id": "2",
+            "name": "design-2",
+            "img": "Untitled-2.png"
+        },
+    ]
+
+    const handleHeading = (e) =>{
+        const heading = e.target.value;
+        setHeading(heading)
+    }
+    const handleParticipantName = (e) =>{
+        const participantName = e.target.value;
+        setParticipantName(participantName)
+    }
+    const handleDescription = (e) =>{
+        const description = e.target.value;
+        setDescription(description);
+    }
+    const handleAuthorName = (e) =>{
+        const authorName = e.target.value;
+        setAuthor(authorName)
+    }
     const handleImage = (e) => {
         const photoURL = e.target.files[0];
         const formData = new FormData();
@@ -30,31 +66,47 @@ const CertificateMain = () => {
         setLogo('')
         resetFile.current.value = "";
     }
+    const handleDesign = (designId, designImage) =>{
+        console.log(designId)
+        setImage(designImage)
+    }
 
     return (
         <div className='certificate__main'>
             <div className="grid grid-cols-6 gap-4">
                 <div className="design__select border-r">
-
+                    <div className="design__selection px-4 py-8">
+                        {
+                            data.map((design, index) => 
+                                
+                             <div key={index} className="card border rounded-lg my-4" onClick={() => handleDesign(design.id, design.img)}>
+                                <div className="card-body">
+                                    <img src={design.img} alt="" />
+                                    <p>{design.name}</p>
+                                </div>
+                             </div>   
+                            )
+                        }
+                    </div>
                 </div>
                 <div className="design__preview col-span-4 flex justify-center items-center h-[89vh]">
                     <div className="card w-10/12 border shadow">
-                        <img className='w-full' src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/certificate-of-appreciation-design-template-c46b6dc447f94b068a04728bd695cc4c_screen.jpg?ts=1608659484" alt="" />
+                        <CertificateImage data={img} />
                     </div>
                 </div>
                 <div className="certificate__details px-4 py-8 border-l">
                     <div className="input__form">
                         <div className="input__detail my-8">
-                            <Input label="Heading" name='heading' />
+                            <Input label="Heading" name='heading' onChange={handleHeading}/>
                         </div>
                         <div className="input__detail my-8">
-                            <Input label="Participant Name" name='participantName' />
+                            <Input label="Participant Name" name='participantName' onChange={handleParticipantName}/>
                         </div>
                         <div className="input__detail my-8">
-                            <Textarea variant="outlined" label="Description" name='description' />
+                            <Textarea variant="outlined" label="Description" name='description' onChange={handleDescription}/>
                         </div>
                         <div className="input__detail my-8">
-                            <Input label="Author Name" name='authorName' />
+                            <Input label="Author Name" name='authorName' onChange={handleAuthorName}/>
                         </div>
                         <div className="input__detail my-8">
                             <label className="block cursor-pointer">
@@ -85,7 +137,8 @@ const CertificateMain = () => {
                             }
                         </div>
                         <div className="input__detail my-8">
-                            <Button fullWidth>Export As Pdf</Button>
+                            <Button fullWidth>Export As Png</Button>
+                            <Button color='green' className='mt-4' fullWidth>Export As Pdf</Button>
                         </div>
                     </div>
                 </div>
