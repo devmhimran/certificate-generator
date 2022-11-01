@@ -1,11 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;0,800;1,400;1,500&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,500;1,600&family=Poppins:wght@200;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-*{
+
+/* 
+font-family: 'Montserrat', sans-serif;
+font-family: 'Playfair Display', serif;
+font-family: 'Poppins', sans-serif; 
+*/
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+}
+
+.montserrat__font{
+  font-family: 'Montserrat', sans-serif;
+}
+.playfair__display__font{
+  font-family: 'Playfair Display', serif;
+}
+.poppins__font{
+  font-family: 'Poppins', sans-serif; 
+}
+.open__sans__font{
+  font-family: 'Open Sans', sans-serif;
+}
+.design__01__container{
+  @apply w-full h-[822px] bg-contain 
+  flex justify-center items-center
+} 
+.design__01__certificate__heading {
+  /* @apply absolute top-[10%] left-[50%] translate-x-[-50%]  */
+  @apply text-center
+}
+.design__01__certificate__heading__text{
+  @apply open__sans__font text-6xl font-bold tracking-widest uppercase text-[#F8B119]
+ 
+}
+.design__01__certificate__sub__heading__text{
+  @apply open__sans__font text-5xl  uppercase
 }

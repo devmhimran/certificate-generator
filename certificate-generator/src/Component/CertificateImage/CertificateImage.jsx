@@ -1,20 +1,20 @@
 import React from 'react';
 import { useState } from 'react';
 
-const CertificateImage = ({data, designId}) => {
-
+const CertificateImage = ({data, designId, certificateDetail}) => {
+    const { heading,participantName,description,author,logo } = certificateDetail;
     // const {img} = data;
     console.log(designId)
     const certificateData = [
         {
             "id": "1",
             "name": "design-1",
-            "img": "Untitled-1.png"
+            "img": "certificate-01.jpg"
         },
         {
             "id": "2",
             "name": "design-2",
-            "img": "Untitled-2.png"
+            "img": "certificate-02.jpg"
         },
     ]
     // console.log(certificateData[0])
@@ -41,11 +41,15 @@ const CertificateImage = ({data, designId}) => {
     // setDesignData(certificateDataFind)
     console.log(certificateDataFind)
     return (
-        <div>
-            <img className='w-full' src={certificateDefaultData?.img} alt="" />
-            {/* {
-                certificateData.map(data => data.id === designId ? <img key={data.id} className='w-full' src={data} alt="" /> : '')
-            } */}
+        <div className='design__01__container ' style={{ backgroundImage: `url(${certificateDefaultData?.img})` }}>
+            {/* <div className="certificate__image">
+                <img src={certificateDefaultData?.img} alt="" />
+            </div> */}
+            <div className="design__01__certificate__heading ">
+                <h2 className='design__01__certificate__heading__text bg-clip-text
+  bg-gradient-to-r from-indigo-500 to-pink-500 '>{heading ? heading : 'Certificate'}</h2>
+                <h4 className='design__01__certificate__sub__heading__text text-center'>of appreciation</h4>
+            </div>
         </div>
     );
 };

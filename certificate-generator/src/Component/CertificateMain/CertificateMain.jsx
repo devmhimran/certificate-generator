@@ -20,14 +20,22 @@ const CertificateMain = () => {
         {
             "id": "1",
             "name": "design-1",
-            "img": "Untitled-1.png"
+            "img": "certificate-01.jpg"
         },
         {
             "id": "2",
             "name": "design-2",
-            "img": "Untitled-2.png"
+            "img": "certificate-02.jpg"
         },
     ]
+
+    const certificateDetail = {
+        heading,
+        participantName,
+        description,
+        author,
+        logo
+    }
 
     const handleHeading = (e) =>{
         const heading = e.target.value;
@@ -76,16 +84,16 @@ const CertificateMain = () => {
 
     return (
         <div className='certificate__main'>
-            <div className="grid grid-cols-6 gap-4">
+            <div className="grid grid-cols-6">
                 <div className="design__select border-r">
                     <div className="design__selection px-4 py-8">
                         {
                             data.map((design, index) => 
                                 
-                             <div key={index} className="card border rounded-lg my-4" onClick={() => handleDesign(design.id, design.img)}>
+                             <div key={index} className="card border shadow rounded-lg my-4" onClick={() => handleDesign(design.id, design.img)}>
                                 <div className="card-body">
                                     <img src={design.img} alt="" />
-                                    <p>{design.name}</p>
+                                    {/* <p>{design.name}</p> */}
                                 </div>
                              </div>   
                             )
@@ -94,7 +102,11 @@ const CertificateMain = () => {
                 </div>
                 <div className="design__preview col-span-4 flex justify-center items-center h-[89vh]">
                     <div className="card w-10/12 border shadow">
-                        <CertificateImage data={img} designId={designId} />
+                        <CertificateImage 
+                        data={img} 
+                        designId={designId} 
+                        certificateDetail = {certificateDetail}
+                        />
                     </div>
                 </div>
                 <div className="certificate__details px-4 py-8 border-l">
