@@ -29,18 +29,56 @@ font-family: 'Poppins', sans-serif;
 .open__sans__font{
   font-family: 'Open Sans', sans-serif;
 }
-.design__01__container{
-  @apply w-full h-[822px] bg-contain 
+/* .design__01__container{
+  @apply bg-cover bg-no-repeat
   flex justify-center items-center
+  py-24 bg-center
+}  */
+.design__01__container{
+  @apply h-fit bg-no-repeat bg-center
+  bg-cover py-32
 } 
-.design__01__certificate__heading {
-  /* @apply absolute top-[10%] left-[50%] translate-x-[-50%]  */
+/* .design__01__certificate__main {
+  @apply absolute top-[10%]
+} */
+.design__01__certificate__main {
   @apply text-center
 }
 .design__01__certificate__heading__text{
-  @apply open__sans__font text-6xl font-bold tracking-widest uppercase text-[#F8B119]
+  @apply open__sans__font text-5xl font-bold text-center tracking-widest uppercase text-[#F8B119] px-14
  
 }
 .design__01__certificate__sub__heading__text{
-  @apply open__sans__font text-5xl  uppercase
+  @apply open__sans__font text-4xl  uppercase text-center
+}
+.design__01__certificate__text__01{
+  @apply open__sans__font my-6
+  text-center
+}
+.design__01__certificate__participant__name{
+  @apply open__sans__font text-4xl font-bold text-blue-800 text-center
+}
+.design__01__certificate__divider{
+  @apply w-3/5  border-t-2 border-[#F8B119]
+  mt-3 mx-auto
+}
+.design__01__certificate__description{
+  @apply open__sans__font w-3/5 mx-auto mt-6
+  text-center
+}
+.design__01__certificate__footer{
+  @apply grid grid-cols-3 gap-4 w-3/5 mx-auto mt-20 flex items-center
+}
+.design__01__certificate__logo__main{
+  @apply w-40 mx-auto
+}
+.design__01__certificate__signature__divider,
+.design__01__certificate__date__divider
+{
+  @apply border-t-2 border-[#F8B119]
+}
+.design__01__certificate__signature__divider___title,
+.design__01__certificate__date__divider___title
+{
+  @apply uppercase text-center mt-2
 }
