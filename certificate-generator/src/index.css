@@ -36,7 +36,7 @@ font-family: 'Poppins', sans-serif;
 }  */
 .design__01__container{
   @apply h-fit bg-no-repeat bg-center
-  bg-cover py-32
+  bg-cover py-20
 } 
 /* .design__01__certificate__main {
   @apply absolute top-[10%]

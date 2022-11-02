@@ -100,8 +100,8 @@ const CertificateMain = () => {
                         }
                     </div>
                 </div>
-                <div className="design__preview col-span-4 flex justify-center items-center h-[89vh]">
-                    <div className="card w-10/12 border shadow">
+                <div className="design__preview col-span-4 flex justify-center items-center py-8">
+                    <div className="card w-11/12 border shadow">
                         <CertificateImage 
                         data={img} 
                         designId={designId} 
