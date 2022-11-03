@@ -10,6 +10,7 @@ const CertificateImage = ({data, designId, certificateDetail}) => {
             "id": "1",
             "name": "design-1",
             "img": "certificate-01.jpg",
+            "main" : "design__01__certificate__main",
             "headingText": "design__01__certificate__heading__text",
             "subHeading" : "design__01__certificate__sub__heading__text",
             "text01": "design__01__certificate__text__01",
@@ -26,7 +27,20 @@ const CertificateImage = ({data, designId, certificateDetail}) => {
         {
             "id": "2",
             "name": "design-2",
-            "img": "certificate-02.jpg"
+            "img": "certificate-02.jpg",
+            "main" : "design__02__certificate__main",
+            "headingText": "design__02__certificate__heading__text",
+            "subHeading" : "design__02__certificate__sub__heading__text",
+            "text01": "design__02__certificate__text__01",
+            "participantName": "design__02__certificate__participant__name",
+            "divider": "design__02__certificate__divider",
+            "description" : "design__02__certificate__description",
+            "footer" : "design__02__certificate__footer",
+            "logoMain" : "design__02__certificate__logo__main",
+            "signatureDivider" : "design__02__certificate__signature__divider",
+            "dateDivider" : "design__02__certificate__date__divider",
+            "signatureDividerTitle" : "design__02__certificate__signature__divider___title",
+            "dateDividerTitle" : "design__02__certificate__date__divider___title"
         },
     ]
     const certificateDataFind = certificateData.find(data => data.id === designId)
@@ -38,14 +52,14 @@ const CertificateImage = ({data, designId, certificateDetail}) => {
     }
     console.log(certificateDataFind)
     return (
-        <div className='design__01__container' style={{ backgroundImage: `url(${certificateDefaultData?.img})` }}>
-            {/* <div className="certificate__image">
-                <img src={certificateDefaultData?.img} alt="" />
-            </div> */}
-            <div className="design__01__certificate__main ">
+        <div className='design__container' >
+            <div className="certificate__image">
+                <img className='w-full relative' src={certificateDefaultData?.img} alt="" />
+            </div>
+            <div className={certificateDefaultData.main ? certificateDefaultData.main +' '+'w-full absolute top-[50%] left-[50%] z-50 text-center' : ''}>
                 <h2 className={certificateDefaultData.headingText ? certificateDefaultData.headingText : ''}>{heading ? heading : 'Certificate'}</h2>
                 <h4 className={certificateDefaultData.subHeading ? certificateDefaultData.subHeading : ''}>of appreciation</h4>
-                <p className={certificateDefaultData.text01 ? certificateDefaultData.text01 : ''}>Proudly presented to:</p>.
+                <p className={certificateDefaultData.text01 ? certificateDefaultData.text01 : ''}>Proudly presented to</p>.
                 <h3 className={certificateDefaultData.participantName ? certificateDefaultData.participantName : ''}>{participantName ? participantName : 'Name Surname'}</h3>
                 <div className={certificateDefaultData.divider ? certificateDefaultData.divider : ''}><hr /></div>
                 <p className={certificateDefaultData.description ? certificateDefaultData.description : ''}>

@@ -1,4 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;0,800;1,400;1,500&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,500;1,600&family=Poppins:wght@200;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Antique&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,7 +27,7 @@ font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
 }
 
 .montserrat__font{
@@ -29,53 +42,121 @@ font-family: 'Poppins', sans-serif;
 .open__sans__font{
   font-family: 'Open Sans', sans-serif;
 }
-/* .design__01__container{
-  @apply bg-cover bg-no-repeat
-  flex justify-center items-center
-  py-24 bg-center
-}  */
-.design__01__container{
-  @apply h-fit bg-no-repeat bg-center
-  bg-cover py-20
-} 
-/* .design__01__certificate__main {
-  @apply absolute top-[10%]
-} */
-.design__01__certificate__main {
-  @apply text-center
+.abril__font{
+  font-family: 'Abril Fatface', cursive;
 }
+.merri__weather__font{
+  font-family: 'Merriweather', serif;
+}
+.zen__antique__font{
+  font-family: 'Zen Antique', serif;
+}
+.roboto__slab__font{
+  font-family: 'Roboto Slab', serif;
+}
+.josefin__sans__font{
+  font-family: 'Josefin Sans', sans-serif;
+}
+.cairo__font{
+  font-family: 'Cairo', sans-serif;
+}
+.bebas__neue__font{
+  font-family: 'Bebas Neue', cursive;
+}
+.lobster__font{
+  font-family: 'Lobster', cursive;
+}
+.pacifico__font{
+  font-family: 'Pacifico', cursive;
+}
+.exo__2__font{
+  font-family: 'Exo 2', sans-serif;
+}
+.font__clear{
+  font-family: unset;
+}
+/* .design__01__container{
+  @apply h-[1250px] bg-no-repeat bg-center
+  bg-cover
+}  */
+.design__container{
+  @apply w-full relative
+} 
+.design__01__certificate__main,
+.design__02__certificate__main
+{
+  transform: translate(-50%, -50%);
+}
+
 .design__01__certificate__heading__text{
   @apply open__sans__font text-5xl font-bold text-center tracking-widest uppercase text-[#F8B119] px-14
- 
+}
+.design__02__certificate__heading__text{
+  font-family: 'Merriweather', serif !important;
+  @apply text-5xl font-bold text-center uppercase text-[#2F9ECC] px-14
 }
 .design__01__certificate__sub__heading__text{
   @apply open__sans__font text-4xl  uppercase text-center
+}
+.design__02__certificate__sub__heading__text{
+  font-family: 'Roboto Slab', serif !important;
+  @apply text-2xl  uppercase text-center mt-16 text-[#B4A5A5]
 }
 .design__01__certificate__text__01{
   @apply open__sans__font my-6
   text-center
 }
+.design__02__certificate__text__01{
+  @apply open__sans__font mb-6
+  text-center uppercase text-2xl
+}
+/* .design__02__certificate__text__01{
+  @apply cairo__font
+  text-center text-2xl
+} */
 .design__01__certificate__participant__name{
   @apply open__sans__font text-4xl font-bold text-blue-800 text-center
+}
+.design__02__certificate__participant__name{
+  font-family: 'Roboto Slab', serif !important;
+  @apply text-4xl font-bold text-center
 }
 .design__01__certificate__divider{
   @apply w-3/5  border-t-2 border-[#F8B119]
   mt-3 mx-auto
 }
+.design__02__certificate__divider{
+  @apply hidden
+}
 .design__01__certificate__description{
   @apply open__sans__font w-3/5 mx-auto mt-6
+  text-center
+}
+.design__02__certificate__description{
+  @apply open__sans__font w-3/5 mx-auto my-6
   text-center
 }
 .design__01__certificate__footer{
   @apply grid grid-cols-3 gap-4 w-3/5 mx-auto mt-20 flex items-center
 }
+.design__02__certificate__footer{
+  @apply grid grid-cols-3 gap-4 w-3/5 mx-auto mt-20 flex items-center
+}
 .design__01__certificate__logo__main{
   @apply w-40 mx-auto
+}
+.design__02__certificate__logo__main{
+  @apply hidden
 }
 .design__01__certificate__signature__divider,
 .design__01__certificate__date__divider
 {
   @apply border-t-2 border-[#F8B119]
+}
+.design__02__certificate__signature__divider,
+.design__02__certificate__date__divider
+{
+  @apply border-t-2 border-[#4C6793]
 }
 .design__01__certificate__signature__divider___title,
 .design__01__certificate__date__divider___title
