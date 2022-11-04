@@ -146,7 +146,7 @@ font-family: 'Poppins', sans-serif;
   @apply w-40 mx-auto
 }
 .design__02__certificate__logo__main{
-  @apply hidden
+  @apply w-40 mx-auto
 }
 .design__01__certificate__signature__divider,
 .design__01__certificate__date__divider
@@ -159,7 +159,9 @@ font-family: 'Poppins', sans-serif;
   @apply border-t-2 border-[#4C6793]
 }
 .design__01__certificate__signature__divider___title,
-.design__01__certificate__date__divider___title
+.design__01__certificate__date__divider___title,
+.design__02__certificate__signature__divider___title,
+.design__02__certificate__date__divider___title
 {
   @apply uppercase text-center mt-2
 }
