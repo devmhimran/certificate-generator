@@ -142,10 +142,10 @@ font-family: 'Poppins', sans-serif;
 .design__02__certificate__footer{
   @apply grid grid-cols-3 gap-4 w-3/5 mx-auto mt-20 flex items-center
 }
-.design__01__certificate__logo__main{
+.design__01__certificate__badge__main{
   @apply w-40 mx-auto
 }
-.design__02__certificate__logo__main{
+.design__02__certificate__badge__main{
   @apply w-40 mx-auto
 }
 .design__01__certificate__signature__divider,

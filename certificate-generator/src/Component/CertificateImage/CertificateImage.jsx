@@ -2,9 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 
 const CertificateImage = ({data, designId, certificateDetail}) => {
-    const { heading,participantName,description,author,logo } = certificateDetail;
+    const { heading,participantName,description,author,logo, badge } = certificateDetail;
     // const {img} = data;
-    console.log(designId)
+    console.log(badge)
     const certificateData = [
         {
             "id": "1",
@@ -19,6 +19,7 @@ const CertificateImage = ({data, designId, certificateDetail}) => {
             "description" : "design__01__certificate__description",
             "footer" : "design__01__certificate__footer",
             "logoMain" : "design__01__certificate__logo__main",
+            "badgeMain" : "design__01__certificate__badge__main",
             "signatureDivider" : "design__01__certificate__signature__divider",
             "dateDivider" : "design__01__certificate__date__divider",
             "signatureDividerTitle" : "design__01__certificate__signature__divider___title",
@@ -37,6 +38,7 @@ const CertificateImage = ({data, designId, certificateDetail}) => {
             "description" : "design__02__certificate__description",
             "footer" : "design__02__certificate__footer",
             "logoMain" : "design__02__certificate__logo__main",
+            "badgeMain" : "design__02__certificate__badge__main",
             "signatureDivider" : "design__02__certificate__signature__divider",
             "dateDivider" : "design__02__certificate__date__divider",
             "signatureDividerTitle" : "design__02__certificate__signature__divider___title",
@@ -75,7 +77,7 @@ const CertificateImage = ({data, designId, certificateDetail}) => {
                         </p>
                     </div>
                     <div className="design__01__certificate__logo">
-                        <img className={certificateDefaultData.logoMain ? certificateDefaultData.logoMain : ''} src={logo ? logo :'https://i.ibb.co/qWdCRj1/certificat-badge.png'} alt="" />
+                        <img className={certificateDefaultData.badgeMain ? certificateDefaultData.badgeMain : ''} src={badge ? badge :'https://i.ibb.co/qWdCRj1/certificat-badge.png'} alt="" />
                     </div>
                     <div className="design__01__certificate__date">
                         <div className={certificateDefaultData.dateDivider ? certificateDefaultData.dateDivider : ''}>
