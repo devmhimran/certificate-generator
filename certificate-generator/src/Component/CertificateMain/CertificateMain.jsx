@@ -122,6 +122,10 @@ const CertificateMain = () => {
         setDesignId(id)
         // console.log(id)
     }
+    const w = 100;
+    const h = 100;
+    const x = 0;
+    const y = 0;
 
     return (
         <div className='certificate__main'>
@@ -224,8 +228,11 @@ const CertificateMain = () => {
                             }
                         </div>
                         <div className="input__detail my-8">
-                            <Button onClick={() => exportComponentAsPNG(exportComponent,{fileName:'image'})}  fullWidth>Export As Png</Button>
-                            <Button  onClick={() => exportComponentAsPDF(exportComponent)} color='green' className='mt-4' fullWidth>Export As Pdf</Button>
+                            <Button onClick={() => exportComponentAsPNG(exportComponent,{fileName:'image'})
+                            }  fullWidth>Export As Png</Button>
+                            <Button  onClick={() => exportComponentAsPDF(exportComponent,{fileName:'image',  
+                             pdfOptions:{w :600, h:465, x:-5,y:0,unit:'px',orientation:'l',pdfFormat:'letter'}})
+                             } color='green' className='mt-4' fullWidth>Export As Pdf</Button>
                         </div>
                     </div>
                 </div>
