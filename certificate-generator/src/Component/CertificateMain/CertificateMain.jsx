@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { useState } from 'react';
 import { TiDeleteOutline } from 'react-icons/ti';
 import CertificateImage from '../CertificateImage/CertificateImage';
+import { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG } from 'react-component-export-image';
 
 const CertificateMain = () => {
     const imageApi = 'ef367f576eca302d4916e3889c6e0cc6';
@@ -17,6 +18,7 @@ const CertificateMain = () => {
     const [designId, setDesignId] = useState('');
     const resetFile = useRef();
     const resetBadgeFile = useRef();
+    const exportComponent = useRef();
 
     const data = [
         {
@@ -30,6 +32,20 @@ const CertificateMain = () => {
             "img": "certificate-02.jpg"
         },
     ]
+
+    const ComponentToPrint = React.forwardRef((props, ref) => (
+
+        <div ref={ref}>
+            <CertificateImage
+                data={props.img}
+                designId={props.designId}
+                certificateDetail={props.certificateDetail} >
+
+            </CertificateImage>
+        </div>
+    ))
+
+
 
     const certificateDetail = {
         heading,
@@ -127,11 +143,12 @@ const CertificateMain = () => {
                 </div>
                 <div className="design__preview col-span-4 flex justify-center items-center py-8">
                     <div className="card w-11/12 border shadow relative">
-                        <CertificateImage
+                        <ComponentToPrint
                             data={img}
                             designId={designId}
                             certificateDetail={certificateDetail}
-                        />
+                            ref={exportComponent} />
+
                     </div>
                 </div>
                 <div className="certificate__details px-4 py-8 border-l">
@@ -158,7 +175,7 @@ const CertificateMain = () => {
                                 file:text-sm file:font-semibold
                                 file:bg-violet-50 file:text-violet-700
                                 hover:file:bg-violet-100
-                                "               
+                                "
                                     onChange={handleImage}
                                     name='logo'
                                     ref={resetFile}
@@ -188,9 +205,9 @@ const CertificateMain = () => {
                                 file:bg-violet-50 file:text-violet-700
                                 hover:file:bg-violet-100
                                 "
-                                onChange={handleBadge}
-                                name='badge'
-                                ref={resetBadgeFile}
+                                    onChange={handleBadge}
+                                    name='badge'
+                                    ref={resetBadgeFile}
                                 />
                             </label>
                             {
@@ -207,8 +224,8 @@ const CertificateMain = () => {
                             }
                         </div>
                         <div className="input__detail my-8">
-                            <Button fullWidth>Export As Png</Button>
-                            <Button color='green' className='mt-4' fullWidth>Export As Pdf</Button>
+                            <Button onClick={() => exportComponentAsPNG(exportComponent,{fileName:'image'})}  fullWidth>Export As Png</Button>
+                            <Button  onClick={() => exportComponentAsPDF(exportComponent)} color='green' className='mt-4' fullWidth>Export As Pdf</Button>
                         </div>
                     </div>
                 </div>
