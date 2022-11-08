@@ -23,11 +23,9 @@ const Home = () => {
                     {
                         data.map(certificateImage =>
                             <Card className='w-1/5 my-3 mx-16'>
-
                                 <CardBody className="text-center">
                                     <img className='' src={certificateImage.preview} alt="" />
                                 </CardBody>
-
                             </Card>
                         )
                     }
