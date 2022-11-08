@@ -5,6 +5,14 @@ const CertificateImage = ({data, designId, certificateDetail}) => {
     const { heading,participantName,description,author,logo, badge } = certificateDetail;
     // const {img} = data;
     console.log(badge)
+
+    // useEffect(()=>{
+    //     axios.get('https://raw.githubusercontent.com/devmhimran/dummy-api/main/Certificate-Api/certificate.json')
+    //     .then( function (res){
+    //         setData(res.data)
+    //     })
+    // },[])
+
     const certificateData = [
         {
             "id": "1",

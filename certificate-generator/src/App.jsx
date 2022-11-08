@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import CertificateImage from './Component/CertificateImage/CertificateImage'
+import CertificateMain from './Component/CertificateMain/CertificateMain'
 import Home from './Component/Home/Home'
+import NavMenu from './Component/NavMenu/NavMenu'
 
 
 function App() {
@@ -10,9 +11,11 @@ function App() {
   return (
     <div className="App">
       {/* <Home /> */}
+      <NavMenu />
+      <hr />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="certificate" element={<CertificateImage />} />
+        <Route path="certificate-generator" element={<CertificateMain/>} />
       </Routes>
     </div>
   )

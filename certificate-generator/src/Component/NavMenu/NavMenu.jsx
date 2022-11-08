@@ -66,19 +66,19 @@ const NavMenu = () => {
 
 
     return (
-        <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4 my-4 shadow-transparent">
+        <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4 shadow-transparent">
             <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
                 <Typography
                     as="a"
-                    href="#"
+                    href="/"
                     variant="small"
                     className="mr-4 cursor-pointer py-1.5 font-normal"
                 >
                     <span>Material Tailwind</span>
                 </Typography>
-                <div className="hidden lg:block">{navList}</div>
+                {/* <div className="hidden lg:block">{navList}</div> */}
                 <Button variant="gradient" size="sm" className="hidden lg:inline-block">
-                    <span>Buy Now</span>
+                    <span>Login</span>
                 </Button>
                 <IconButton
                     variant="text"
@@ -119,11 +119,13 @@ const NavMenu = () => {
                 </IconButton>
             </div>
             <MobileNav open={openNav}>
-                {navList}
+                {/* {navList} */}
                 <Button variant="gradient" size="sm" fullWidth className="mb-2">
-                    <span>Buy Now</span>
+                    <span>Login</span>
                 </Button>
             </MobileNav>
+                
+         
         </Navbar>
     );
 };

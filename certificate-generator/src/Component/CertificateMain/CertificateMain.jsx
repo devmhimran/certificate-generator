@@ -1,10 +1,11 @@
 import { Avatar, Button, Input, Textarea } from '@material-tailwind/react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRef } from 'react';
 import { useState } from 'react';
 import { TiDeleteOutline } from 'react-icons/ti';
 import CertificateImage from '../CertificateImage/CertificateImage';
 import { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG } from 'react-component-export-image';
+import axios from 'axios';
 
 const CertificateMain = () => {
     const imageApi = 'ef367f576eca302d4916e3889c6e0cc6';
@@ -19,19 +20,14 @@ const CertificateMain = () => {
     const resetFile = useRef();
     const resetBadgeFile = useRef();
     const exportComponent = useRef();
+    const [data, setData] = useState([]);
 
-    const data = [
-        {
-            "id": "1",
-            "name": "design-1",
-            "img": "certificate-01.jpg"
-        },
-        {
-            "id": "2",
-            "name": "design-2",
-            "img": "certificate-02.jpg"
-        },
-    ]
+    useEffect(()=>{
+        axios.get('https://raw.githubusercontent.com/devmhimran/dummy-api/main/Certificate-Api/certificate.json')
+        .then( function (res){
+            setData(res.data)
+        })
+    },[])
 
     const ComponentToPrint = React.forwardRef((props, ref) => (
 
@@ -137,7 +133,7 @@ const CertificateMain = () => {
 
                                 <div key={index} className="card border shadow rounded-lg my-4" onClick={() => handleDesign(design.id, design.img)}>
                                     <div className="card-body">
-                                        <img src={design.img} alt="" />
+                                        <img src={design.preview} alt="" />
                                         {/* <p>{design.name}</p> */}
                                     </div>
                                 </div>
