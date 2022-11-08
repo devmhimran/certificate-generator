@@ -8,6 +8,7 @@ import {
     IconButton,
 } from "@material-tailwind/react";
 import { Link } from 'react-router-dom';
+import certificateGeneratorLogo from '../../../public/devmhimran-certificate-generator-logo.png'
 
 const NavMenu = () => {
     const [openNav, setOpenNav] = useState(false);
@@ -67,7 +68,7 @@ const NavMenu = () => {
 
 
     return (
-        <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4 shadow-transparent">
+        <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 shadow-transparent">
             <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
                 <Typography
                     as="a"
@@ -75,7 +76,7 @@ const NavMenu = () => {
                     variant="small"
                     className="mr-4 cursor-pointer py-1.5 font-normal"
                 >
-                    <span>Material Tailwind</span>
+                    <img className='w-1/3' src={certificateGeneratorLogo} alt="" />
                 </Typography>
                 {/* <div className="hidden lg:block">{navList}</div> */}
                 <div className="login__btn">

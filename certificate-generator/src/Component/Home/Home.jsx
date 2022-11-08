@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import { Link } from 'react-router-dom';
 import { BsArrowRight } from "react-icons/bs";
+import Hero from '../Hero/Hero';
 
 const Home = () => {
     const [data, setData] = useState([]);
@@ -16,8 +17,8 @@ const Home = () => {
     }, [])
     return (
         <div className='h-[90vh]'>
-
-            <div className="">
+            <Hero/>
+            <div className="py-8 lg:py-16">
                 <Marquee speed={50} gradient={false} className='mt-4' pauseOnClick={true}>
                     {
                         data.map(certificateImage =>
@@ -32,7 +33,7 @@ const Home = () => {
                     }
                 </Marquee>
             </div>
-            <div className="start__link text-center py-6">
+            <div className="start__link text-center py-12">
                 <Link to="certificate-generator" className='px-6 py-2 border-2 border-black font-semibold text-xl text-black hover:bg-black hover:text-white'>
                     Let's Start <BsArrowRight className='ml-1 inline text-2xl mb-1' /></Link>
             </div>
