@@ -7,6 +7,7 @@ import {
     Button,
     IconButton,
 } from "@material-tailwind/react";
+import { Link } from 'react-router-dom';
 
 const NavMenu = () => {
     const [openNav, setOpenNav] = useState(false);
@@ -77,9 +78,12 @@ const NavMenu = () => {
                     <span>Material Tailwind</span>
                 </Typography>
                 {/* <div className="hidden lg:block">{navList}</div> */}
-                <Button variant="gradient" size="sm" className="hidden lg:inline-block">
+                <div className="login__btn">
+                    <Link to='/login'className='px-4 py-1 border-black border-2 text-xl text-black hover:text-white hover:bg-black'>Login</Link>
+                </div>
+                {/* <Button variant="gradient" size="sm" className="hidden lg:inline-block">
                     <span>Login</span>
-                </Button>
+                </Button> */}
                 <IconButton
                     variant="text"
                     className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
