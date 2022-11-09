@@ -4,6 +4,7 @@ import CertificateMain from './Component/CertificateMain/CertificateMain'
 import Home from './Component/Home/Home'
 import Login from './Component/Login/Login'
 import NavMenu from './Component/NavMenu/NavMenu'
+import Register from './Component/Register/Register'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="certificate-generator" element={<CertificateMain/>} />
         <Route path="login" element={<Login/>} />
+        <Route path="register" element={<Register/>} />
       </Routes>
     </div>
   )

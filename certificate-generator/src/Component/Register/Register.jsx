@@ -11,13 +11,16 @@ import {
 import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 
-const Login = () => {
+const Register = () => {
     return (
         <div className='container mx-auto h-[90vh] flex items-center justify-center'>
             <Card className="w-96">
                 <CardBody className="text-center">
-                    <h1 className='text-center text-2xl font-semibold text-black mb-6'>Login</h1>
+                    <h1 className='text-center text-2xl font-semibold text-black mb-6'>Register</h1>
                     <form>
+                        <div className="w-full my-5">
+                            <Input label="Name" />
+                        </div>
                         <div className="w-full my-5">
                             <Input label="Username or Email" />
                         </div>
@@ -26,6 +29,15 @@ const Login = () => {
                             <div className='text-left'>
                                 <Link className='text-sm text-[#1C6DD0]'>Forgot Password?</Link>
                             </div>
+                        </div>
+                        <div className="w-full my-5">
+                            <input type="file" class="block w-full text-sm text-slate-500
+                            file:mr-4 file:py-2 file:px-4
+                            file:rounded-full file:border-0
+                            file:text-sm file:font-semibold
+                            file:bg-violet-50 file:text-violet-700
+                            hover:file:bg-violet-100
+                            "/>
                         </div>
                         <div className="w-full my-5">
                             <Button fullWidth>Login</Button>
@@ -43,4 +55,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
