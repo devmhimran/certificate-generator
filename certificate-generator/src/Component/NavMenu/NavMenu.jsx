@@ -9,16 +9,23 @@ import {
 } from "@material-tailwind/react";
 import { Link } from 'react-router-dom';
 import certificateGeneratorLogo from '../../../public/devmhimran-certificate-generator-logo.png'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const NavMenu = () => {
     const [openNav, setOpenNav] = useState(false);
-
+    const [user, loading, error] = useAuthState(auth);
     useEffect(() => {
         window.addEventListener(
             "resize",
             () => window.innerWidth >= 960 && setOpenNav(false)
         );
     }, []);
+
+    const handleLogOut = () => {
+        signOut(auth);
+    }
 
 
     const navList = (
@@ -79,9 +86,15 @@ const NavMenu = () => {
                     <img className='w-1/3' src={certificateGeneratorLogo} alt="" />
                 </Typography>
                 {/* <div className="hidden lg:block">{navList}</div> */}
-                <div className="login__btn">
-                    <Link to='/login'className='px-4 py-1 border-black border-2 text-xl text-black hover:text-white hover:bg-black'>Login</Link>
-                </div>
+                {
+                    user ?
+                        <div className="login__btn">
+                            <button onClick={handleLogOut} className='px-4 py-1 border-black border-2 text-lg text-black hover:text-white hover:bg-black'>Logout</button>
+                        </div> :
+                        <div className="login__btn">
+                            <Link to='/login' className='px-4 py-1 border-black border-2 text-lg text-black hover:text-white hover:bg-black'>Login</Link>
+                        </div>
+                }
                 {/* <Button variant="gradient" size="sm" className="hidden lg:inline-block">
                     <span>Login</span>
                 </Button> */}
@@ -129,8 +142,8 @@ const NavMenu = () => {
                     <span>Login</span>
                 </Button>
             </MobileNav>
-                
-         
+
+
         </Navbar>
     );
 };
