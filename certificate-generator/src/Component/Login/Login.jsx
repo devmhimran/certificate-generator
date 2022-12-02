@@ -66,9 +66,7 @@ const Login = () => {
                         </div>
                     </form>
                 </CardBody>
-                <CardFooter divider className="flex items-center justify-center py-3">
-                    <button className='py-3 shadow px-8 rounded flex items-center'><FcGoogle className='mr-2' /> Login with google</button>
-                </CardFooter>
+                
             </Card>
         </div>
     );
